@@ -183,3 +183,138 @@ Windows приложение, в котором можно будет выпол
 
 ![UML диаграмма архитектуры](./src/ProjectUML.png)
 
+## Task 2
+
+### Фрагмент 1
+
+```c#
+class DataOrg 
+{ 
+    string _name;
+    int _nameLen; 
+
+    public int Age { get; set; }
+    public int Score { get; set; }
+
+
+    public string[] GetStatement() 
+    { 
+        if (_name != null) 
+        { 
+            string[] row = new string[3]; 
+            row[0] = _name; 
+            row[1] = $"{Age * 0.83}"; 
+            row[2] = DateTime.Now; 
+
+            return row; 
+        }
+
+        return null; 
+    } 
+
+    public int UpdateNameLen() 
+    { 
+        if (_name == null) 
+        { 
+            return -1; 
+        }
+        else 
+        { 
+            if (_name.Length < 3) 
+                return 0; 
+
+            if (Age < 18 || Age > 65) 
+                return 0; 
+
+            if (Score == -1) 
+                return 0; 
+
+            _nameLen = _name.Length * 4; 
+            
+            return 0; 
+        } 
+    }
+} 
+```
+
+### Фрагмент 2 (1 балл) 
+
+```c#
+public class GMethods 
+{
+    public string Name { get; private set; }
+
+    private int _price; 
+    private int _amount; 
+    private string _platform; 
+
+    public void PrintPack() 
+    { 
+        this.PrintBanner(); 
+
+        // Print details. 
+        Console.WriteLine("name: " + this.Name); 
+        Console.WriteLine("amount: " + this.GetOutstanding()); 
+        Console.WriteLine("price: " + this._price); 
+        Console.WriteLine("platform: " + _platform); 
+    } 
+
+    float GetAmount() 
+    { 
+        if ((_platform.ToUpper().IndexOf("PC") > -1) && 
+				(Name.ToUpper().IndexOf("XX") > -1) &&
+				_amount > 0)
+            return _amount * 0.956; 
+
+        Console.WriteLine(_amount * _price); 
+        Console.WriteLine(0.8 * _amount * _price); 
+
+        return -1; 
+    } 
+}
+``` 
+ 
+### Фрагмент 3 (1 балл) 
+
+```c#
+class Fighter 
+{
+    private int _damage;
+
+    public string SName { get; set; }
+    public int FighterHealth { get; set; } 
+    public int FighterDamage { get; set; } 
+    public int WeaponStatus { get; set; } 
+
+    void LogStatus(string name, int age, int health, int damage, int weaponStatus) 
+    { 
+        Console.WriteLine($"name:{name}, age:{age}, health:{health}, damage:{damage}, weaponStatus:{weaponStatus}"); 
+    }
+
+    public int GetDamage() 
+    { 
+        // WeaponStatus * 5 
+        // Console.WriteLine($"Get Damage {_damage}"); 
+        return _damage; 
+    } 
+
+    void AttackInner() 
+    { 
+        Console.WriteLine("Go Attack!"); 
+        // TODO: implement attack 
+    } 
+
+    public void Attack() 
+    { 
+        try 
+        { 
+            AttackInner(); 
+        } 
+        catch(Exception e) 
+        { 
+            Console.WriteLine($"Go Attack Exception: {e}"); 
+            throw e; 
+        } 
+    } 
+}
+```
