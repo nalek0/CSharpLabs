@@ -4,6 +4,9 @@
 
 ## Task 1
 
+Проект в папке [Project/](../Project/).
+Комментарии по коду тут:
+
 ### SRP — The Single Responsibility Principle
 
 `AdministratorDataBuilder` и `ReportDataBuilder` реализуют единственную функцию - сборку соответствующего дата класса, реализует SRP
