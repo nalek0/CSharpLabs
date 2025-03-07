@@ -1,6 +1,6 @@
 ﻿namespace Task2
 {
-    internal class Model
+    public class Model
     {
         public delegate void OnFeedbackEvent(FeedbackData feedbackData);
         public event OnFeedbackEvent OnFeeback;
