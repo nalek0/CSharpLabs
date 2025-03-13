@@ -9,7 +9,7 @@ namespace SemProjectUnitTesting
     public sealed class APIUsageTest
     {
         [TestMethod]
-        public void TestAdministratorDatabase()
+        public void TestAdministratorAPI()
         {
             DatabaseAPIFacade databaseAPI = new DatabaseAPIFacade(
                 new AdministratorDatabaseAPIMock(),
