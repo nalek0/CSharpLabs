@@ -61,7 +61,10 @@ namespace CSharpSemProject.mvc.impl
                 else
                 {
                     Console.WriteLine("[1] Log out");
-                    Console.WriteLine("[2] Exit");
+                    Console.WriteLine("[2] Load users");
+                    Console.WriteLine("[3] Load videos");
+                    Console.WriteLine("[4] Load reports");
+                    Console.WriteLine("[5] Exit");
 
                     string userInput = Console.ReadLine();
 
@@ -69,7 +72,19 @@ namespace CSharpSemProject.mvc.impl
                     {
                         _model.LogOut();
                     }
-                    else if (userInput == "2") // Exit
+                    else if (userInput == "2") // See users
+                    {
+                        _model.LoadUsers();
+                    }
+                    else if (userInput == "3") // See videos
+                    {
+                        _model.LoadVideos();
+                    }
+                    else if (userInput == "4") // See reports
+                    {
+                        _model.LoadReports();
+                    }
+                    else if (userInput == "5") // Exit
                     {
                         return;
                     }

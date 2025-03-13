@@ -1,4 +1,5 @@
 ﻿using CSharpSemProject.api;
+using System;
 
 namespace CSharpSemProject.mvc
 {
@@ -30,6 +31,21 @@ namespace CSharpSemProject.mvc
         public void LogOut()
         {
             State.AdministratorDataState = null;
+        }
+
+        internal void LoadUsers()
+        {
+            State.UserDataListState = _databaseApi.GetUsers();
+        }
+
+        internal void LoadVideos()
+        {
+            State.VideoDataListState= _databaseApi.GetVideos();
+        }
+
+        internal void LoadReports()
+        {
+            State.ReportDataListState = _databaseApi.GetReports();
         }
     }
 }

@@ -26,6 +26,36 @@ namespace CSharpSemProject.mvc
             {
                 Console.WriteLine($"Logined: {state.AdministratorDataState.Nickname}, {state.AdministratorDataState.FirstName} {state.AdministratorDataState.LastName}");
             }
+
+            if (state.UserDataListState == null)
+            {
+                Console.WriteLine("Users not loaded.");
+            }
+            else
+            {
+                foreach (var user in state.UserDataListState)
+                    Console.WriteLine($"User #{user.UserId} {user.Nickname}: {user.FirstName} {user.LastName}");
+            }
+
+            if (state.VideoDataListState == null)
+            {
+                Console.WriteLine("Videos not loaded.");
+            }
+            else
+            {
+                foreach (var video in state.VideoDataListState)
+                    Console.WriteLine($"Video #{video.VideoId}: user={video.UserId} description={video.Description}");
+            }
+
+            if (state.ReportDataListState == null)
+            {
+                Console.WriteLine("Reports not loaded.");
+            }
+            else
+            {
+                foreach (var report in state.ReportDataListState)
+                    Console.WriteLine($"Report #{report.ReportId}: user={report.UserId} video={report.VideoId} description={report.Description} ({report.Status})");
+            }
         }
     }
 }

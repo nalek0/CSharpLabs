@@ -10,5 +10,6 @@ namespace CSharpSemProject.api
     {
         VideoData GetVideo(long id);
         VideoData BanVideo(long id);
+        List<VideoData> GetVideos();
     }
 }

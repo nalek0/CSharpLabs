@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpSemProject
+﻿namespace CSharpSemProject
 {
     class AdministratorData
     {
         public long UserId { get; set; }
-        public string FirstName { get; }
-        public string LastName { get; }
-        public string Nickname { get; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Nickname { get; set; }
         public string Password { get; }
 
         public AdministratorData(string firstName, string lastName, string nickname, string password)

@@ -1,8 +1,11 @@
-﻿namespace CSharpSemProject.api
+﻿using System.Collections.Generic;
+
+namespace CSharpSemProject.api
 {
     interface IUserDatabaseAPIStrategy
     {
         UserData GetUser(long id);
         UserData BanUser(long id);
+        List<UserData> GetUsers();
     }
 }

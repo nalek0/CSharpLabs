@@ -1,10 +1,12 @@
 ﻿using CSharpSemProject.data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CSharpSemProject.api.impl
 {
+    /// <summary>
+    /// Test administrator API strategy, that stores administrator data locally
+    /// </summary>
     class LocalAdministratorDatabaseAPI : IAdministratorDatabaseAPIStrategy
     {
         private List<AdministratorData> _administrators;
@@ -16,17 +18,11 @@ namespace CSharpSemProject.api.impl
 
         public AdministratorData GetAdministrator(long id)
         {
-            AdministratorData administratorData = _administrators.Where((admin) => admin.UserId == id).FirstOrDefault(null);
+            AdministratorData administratorData = _administrators
+                .Where((admin) => admin.UserId == id)
+                .FirstOrDefault(null);
 
-
-            if (administratorData != null)
-            {
-                return administratorData;
-            } 
-            else
-            {
-                throw new DatabaseApiException("No administrator found.");
-            }
+            return administratorData;
         }
 
         public AdministratorData GetAdministrator(string nickname, string password)
@@ -35,14 +31,7 @@ namespace CSharpSemProject.api.impl
                 .Where((admin) => admin.Nickname == nickname && admin.Password == password)
                 .First();
 
-            if (administratorData != null)
-            {
-                return administratorData;
-            }
-            else
-            {
-                throw new DatabaseApiException("No administrator found.");
-            }
+            return administratorData;
         }
 
         public AdministratorData CreateAdministrator(string firstName, string lastName, string nickname, string password)
@@ -61,12 +50,26 @@ namespace CSharpSemProject.api.impl
         
         public AdministratorData RemoveAdministrator(long id)
         {
-            throw new NotImplementedException();
+            AdministratorData administratorData = GetAdministrator(id);
+
+            if (administratorData != null)
+                _administrators.Remove(administratorData);
+
+            return administratorData;
         }
 
         public AdministratorData EditAdministrator(long id, string firstName, string lastName, string nickname)
         {
-            throw new NotImplementedException();
+            AdministratorData administratorData = GetAdministrator(id);
+
+            if (administratorData == null)
+                return null;
+
+            administratorData.FirstName = firstName;
+            administratorData.LastName = firstName;
+            administratorData.Nickname = firstName;
+
+            return administratorData;
         }
     }
 }

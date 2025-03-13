@@ -52,6 +52,7 @@
     <Compile Include="data\AdministratorDataBuilder.cs" />
     <Compile Include="data\ReportData.cs" />
     <Compile Include="data\ReportDataBuilder.cs" />
+    <Compile Include="data\ReportStatus.cs" />
     <Compile Include="data\UserData.cs" />
     <Compile Include="data\VideoData.cs" />
     <Compile Include="Application.cs" />

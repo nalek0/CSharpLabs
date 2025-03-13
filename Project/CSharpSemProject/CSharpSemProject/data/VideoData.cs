@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpSemProject
+﻿namespace CSharpSemProject
 {
     class VideoData
     {
-        public long VideoId { get; }
-        public long UserId { get; }
-        public string Description { get; }
+        public long VideoId { get; set; }
+        public long UserId { get; set; }
+        public string Description { get; set; }
     }
 }

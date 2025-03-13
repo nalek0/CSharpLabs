@@ -1,4 +1,6 @@
-﻿namespace CSharpSemProject.api
+﻿using System.Collections.Generic;
+
+namespace CSharpSemProject.api
 {
     class DatabaseAPIFacade
     {
@@ -19,6 +21,7 @@
             _videoDatabaseAPIStrategy = videoDatabaseAPIStrategy;
         }
 
+        #region Administrator API
         public AdministratorData GetAdministrator(long id)
         {
             return _administratorDatabaseAPIStrategy.GetAdministrator(id);
@@ -43,7 +46,9 @@
         {
             return _administratorDatabaseAPIStrategy.EditAdministrator(id, firstName, lastName, nickname);
         }
+        #endregion
 
+        #region Report API
         public ReportData GetReport(long reportId)
         {
             return _reportDatabaseAPIStrategy.GetReport(reportId);
@@ -59,6 +64,13 @@
             return _reportDatabaseAPIStrategy.EditReport(reportId, description);
         }
 
+        public List<ReportData> GetReports()
+        {
+            return _reportDatabaseAPIStrategy.GetReports();
+        }
+        #endregion
+
+        #region User API
         public UserData GetUser(long id)
         {
             return _userDatabaseAPIStrategy.GetUser(id);
@@ -69,6 +81,13 @@
             return _userDatabaseAPIStrategy.BanUser(id);
         }
 
+        public List<UserData> GetUsers()
+        {
+            return _userDatabaseAPIStrategy.GetUsers();
+        }
+        #endregion
+
+        #region Video API
         public VideoData GetVideo(long id)
         {
             return _videoDatabaseAPIStrategy.GetVideo(id);
@@ -78,5 +97,11 @@
         {
             return _videoDatabaseAPIStrategy.BanVideo(id);
         }
+
+        public List<VideoData> GetVideos()
+        {
+            return _videoDatabaseAPIStrategy.GetVideos();
+        }
+        #endregion
     }
 }
