@@ -17,8 +17,7 @@ namespace SemProjectUnitTesting.mocks
         public AdministratorData GetAdministrator(long id)
         {
             AdministratorData administratorData = _administrators
-                .Where((admin) => admin.UserId == id)
-                .FirstOrDefault(null);
+                .Find((admin) => admin.UserId == id);
 
             return administratorData;
         }
@@ -26,8 +25,7 @@ namespace SemProjectUnitTesting.mocks
         public AdministratorData GetAdministrator(string nickname, string password)
         {
             AdministratorData administratorData = _administrators
-                .Where((admin) => admin.Nickname == nickname && admin.Password == password)
-                .First();
+                .Find((admin) => admin.Nickname == nickname && admin.Password == password);
 
             return administratorData;
         }

@@ -28,6 +28,12 @@ namespace SemProjectUnitTesting
             model.LogIn("Nickname#2", "****");
             Assert.AreEqual("FirstName#2", model.State.AdministratorDataState.FirstName);
             Assert.AreEqual("LastName#2", model.State.AdministratorDataState.LastName);
+
+            model.LogOut();
+            Assert.AreEqual(null, model.State.AdministratorDataState);
+
+            model.LogIn("Nickname#3", "****");
+            Assert.AreEqual(null, model.State.AdministratorDataState);
         }
     }
 }
