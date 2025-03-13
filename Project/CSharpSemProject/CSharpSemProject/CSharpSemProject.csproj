@@ -35,5 +35,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\DatabaseAPIFacade.cs" />
+    <Compile Include="api\IAdministratorDatabaseAPIStrategy.cs" />
+    <Compile Include="api\IReportDatabaseAPIStrategy.cs" />
+    <Compile Include="api\IUserDatabaseAPIStrategy.cs" />
+    <Compile Include="api\IVideoDatabaseAPIStrategy.cs" />
+    <Compile Include="command\CommandManagerSingleton.cs" />
+    <Compile Include="command\IAdministratorCommand.cs" />
+    <Compile Include="data\AdministratorData.cs" />
+    <Compile Include="data\AdministratorDataBuilder.cs" />
+    <Compile Include="data\ReportData.cs" />
+    <Compile Include="data\ReportDataBuilder.cs" />
+    <Compile Include="data\UserData.cs" />
+    <Compile Include="data\VideoData.cs" />
+    <Compile Include="MainClass.cs" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
