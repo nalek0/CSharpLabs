@@ -3,8 +3,7 @@ using System;
 
 namespace CSharpSemProject.mvc
 {
-
-    class Model
+    public class Model
     {
         private DatabaseAPIFacade _databaseApi;
         
@@ -33,17 +32,17 @@ namespace CSharpSemProject.mvc
             State.AdministratorDataState = null;
         }
 
-        internal void LoadUsers()
+        public void LoadUsers()
         {
             State.UserDataListState = _databaseApi.GetUsers();
         }
 
-        internal void LoadVideos()
+        public void LoadVideos()
         {
             State.VideoDataListState= _databaseApi.GetVideos();
         }
 
-        internal void LoadReports()
+        public void LoadReports()
         {
             State.ReportDataListState = _databaseApi.GetReports();
         }

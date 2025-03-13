@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CSharpSemProject.api
 {
-    interface IVideoDatabaseAPIStrategy
+    public interface IVideoDatabaseAPIStrategy
     {
         VideoData GetVideo(long id);
         VideoData BanVideo(long id);

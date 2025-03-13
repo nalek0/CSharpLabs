@@ -2,7 +2,7 @@
 
 namespace CSharpSemProject.data
 {
-    class AdministratorDataBuilder
+    public class AdministratorDataBuilder
     {
         private string _firstName = null;
         private string _lastName = null;

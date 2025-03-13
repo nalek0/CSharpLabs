@@ -39,10 +39,14 @@
     <Compile Include="api\DatabaseApiException.cs" />
     <Compile Include="api\DatabaseAPIFacade.cs" />
     <Compile Include="api\IAdministratorDatabaseAPIStrategy.cs" />
+    <Compile Include="api\imp\NullAdministratorDatabaseAPI.cs" />
     <Compile Include="api\imp\LocalAdministratorDatabaseAPI.cs" />
     <Compile Include="api\imp\LocalReportDatabaseAPI.cs" />
     <Compile Include="api\imp\LocalUserDatabaseAPI.cs" />
     <Compile Include="api\imp\LocalVideoDatabaseAPI.cs" />
+    <Compile Include="api\imp\NullReportDatabaseAPI.cs" />
+    <Compile Include="api\imp\NullUserDatabaseAPI.cs" />
+    <Compile Include="api\imp\NullVideoDatabaseAPI.cs" />
     <Compile Include="api\IReportDatabaseAPIStrategy.cs" />
     <Compile Include="api\IUserDatabaseAPIStrategy.cs" />
     <Compile Include="api\IVideoDatabaseAPIStrategy.cs" />

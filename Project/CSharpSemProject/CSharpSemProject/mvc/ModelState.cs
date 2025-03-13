@@ -2,7 +2,7 @@
 
 namespace CSharpSemProject.mvc
 {
-    class ModelState
+    public class ModelState
     {
         public delegate void OnUpdate(ModelState viewState);
 

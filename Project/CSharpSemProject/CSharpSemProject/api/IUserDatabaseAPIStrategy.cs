@@ -2,7 +2,7 @@
 
 namespace CSharpSemProject.api
 {
-    interface IUserDatabaseAPIStrategy
+    public interface IUserDatabaseAPIStrategy
     {
         UserData GetUser(long id);
         UserData BanUser(long id);

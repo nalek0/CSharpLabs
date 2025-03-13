@@ -1,6 +1,6 @@
 ﻿namespace CSharpSemProject
 {
-    class ReportData
+    public class ReportData
     {
         public long ReportId { get; set; }
         public long UserId { get; set; }

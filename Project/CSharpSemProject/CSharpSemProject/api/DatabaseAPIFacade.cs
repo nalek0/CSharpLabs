@@ -2,7 +2,7 @@
 
 namespace CSharpSemProject.api
 {
-    class DatabaseAPIFacade
+    public class DatabaseAPIFacade
     {
         IAdministratorDatabaseAPIStrategy _administratorDatabaseAPIStrategy;
         IReportDatabaseAPIStrategy _reportDatabaseAPIStrategy;

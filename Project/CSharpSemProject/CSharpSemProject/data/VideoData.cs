@@ -1,6 +1,6 @@
 ﻿namespace CSharpSemProject
 {
-    class VideoData
+    public class VideoData
     {
         public long VideoId { get; set; }
         public long UserId { get; set; }

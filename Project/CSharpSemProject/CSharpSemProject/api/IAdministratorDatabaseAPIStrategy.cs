@@ -1,6 +1,6 @@
 ﻿namespace CSharpSemProject.api
 {
-    interface IAdministratorDatabaseAPIStrategy
+    public interface IAdministratorDatabaseAPIStrategy
     {
         AdministratorData GetAdministrator(long id);
         AdministratorData GetAdministrator(string nickname, string password);

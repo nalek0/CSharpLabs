@@ -2,7 +2,7 @@
 
 namespace CSharpSemProject.data
 {
-    class ReportDataBuilder
+    public class ReportDataBuilder
     {
         public ReportDataBuilder SetUserId(long id)
         {

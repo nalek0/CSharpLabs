@@ -2,7 +2,7 @@
 
 namespace CSharpSemProject.api
 {
-    interface IReportDatabaseAPIStrategy
+    public interface IReportDatabaseAPIStrategy
     {
         ReportData GetReport(long reportId);
         ReportData CreateReport(long videoId, long userId, string description);
