@@ -17,9 +17,34 @@ namespace Task2
 
         public void OnInput(string cost, string tips)
         {
-            int costConverted = Convert.ToInt32(cost);
-            int tipsConverted = Convert.ToInt32(tips);
+            int costConverted, tipsConverted;
+
+            try
+            {
+                costConverted = Convert.ToInt32(cost);
+            }
+            catch (FormatException)
+            {
+                throw new ControllerException("Invalid cost format.");
+            }
+
+            try
+            {
+                tipsConverted = Convert.ToInt32(tips);
+            }
+            catch (FormatException)
+            {
+                throw new ControllerException("Invalid cost format.");
+            }
+
             _model.OnInput(costConverted, tipsConverted);
         }
+    }
+
+    public class ControllerException : Exception
+    {
+        public ControllerException() { }
+        public ControllerException(string message) : base(message) { }
+        public ControllerException(string message, Exception inner) : base(message, inner) { }
     }
 }
