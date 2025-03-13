@@ -15,4 +15,4 @@
 
 ### Пример работы программы
 
-![Program example](./src/sceenshot1.png)
+![Program example](./src/screenshot1.png)
