@@ -16,3 +16,23 @@
 ### Пример работы программы
 
 ![Program example](./src/screenshot1.png)
+
+#### Уровень пользовательского интерфейса
+
+Класс [Model](../Project/CSharpSemProject/CSharpSemProject/mvc/Model.cs)
+
+#### Уровень доступа к данным
+
+Классы в дирректории [api.impl](../Project/CSharpSemProject/CSharpSemProject/api/imp), реализации интерфейсов из доменного уровня
+
+* `Null...` классы - это реализации интерфейсов, где каждый метод кидает ошибку `NotImplementedException()`
+* `Local...` классы - это реализации для локального тестирования (т.к. интерфейсы - это API доступа к базам данным, то `Local...` классы - реализация этого API в локальной базе данных)
+
+#### Доменный уровень
+
+Интерфейсы доступа к API баз данных
+
+* [IAdministratorDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IAdministratorDatabaseAPIStrategy.cs)
+* [IReportDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IReportDatabaseAPIStrategy.cs)
+* [IUserDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IUserDatabaseAPIStrategy.cs)
+* [IVideoDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IVideoDatabaseAPIStrategy.cs)
