@@ -1,8 +1,8 @@
-﻿using CSharpSemProject.mvc;
-using CSharpSemProject.api;
-using SemProjectUnitTesting.mocks;  
+﻿using DataDomenLevel.data;
+using DataDomenLevel.api;
+using DataAccessLevel.api;
+using DataUILevel.mvc;
 using NSubstitute;
-using CSharpSemProject.data;
 
 namespace SemProjectUnitTesting
 {
