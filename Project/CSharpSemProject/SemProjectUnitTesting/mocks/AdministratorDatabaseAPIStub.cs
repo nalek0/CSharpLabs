@@ -6,7 +6,7 @@ namespace SemProjectUnitTesting.mocks
     /// <summary>
     /// Statick administrators database api
     /// </summary>
-    class AdministratorDatabaseAPIMock : IAdministratorDatabaseAPIStrategy
+    class AdministratorDatabaseAPIStub : IAdministratorDatabaseAPIStrategy
     {
         private List<AdministratorData> _administrators = new List<AdministratorData>()
         {
