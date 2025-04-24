@@ -4,35 +4,32 @@
 
 ## Task 1
 
-Юнит тестирование реализуется для API базы данных, реализованные тесты:
+Выполненные юнит тесты:
 
-* `TestAdministratorAPI` - тест регистрации админа в админке. Моки: `IAdministratorDatabaseAPIStrategy`
+* `ModelTest` - тест модели, использует заглушку для API администрации
 
 ## Task 2
 
-Реализовано простое консольное приложение, которое позволяет регистрироваться админу, и подгружать всех пользователей, все видео и все репорты.
-Пока использоуется не реальная база данных.
+Выделил несколько подпроектов для каждого слоя доступа к данным
 
-### Пример работы программы
+### DataDomainLevel
 
-![Program example](./src/screenshot1.png)
+Доменный уровень.
+Определяет классы данных, интерфейсы взаимодействия с API.
 
-#### Уровень пользовательского интерфейса
+### DataAccessLevel
 
-Класс [Model](../Project/CSharpSemProject/CSharpSemProject/mvc/Model.cs)
+Уровень доступа к данным.
+Определяет различные интерфейсы, реализующие интерфейсы из доменного уровня, реализующий доступ к данным
 
-#### Уровень доступа к данным
+* `Null...` - нулевые классы доступа
+* `Local...` - классы доступа к локальным данным, используются для тестирования
 
-Классы в дирректории [api.impl](../Project/CSharpSemProject/CSharpSemProject/api/imp), реализации интерфейсов из доменного уровня
+### DataUILevel
 
-* `Null...` классы - это реализации интерфейсов, где каждый метод кидает ошибку `NotImplementedException()`
-* `Local...` классы - это реализации для локального тестирования (т.к. интерфейсы - это API доступа к базам данным, то `Local...` классы - реализация этого API в локальной базе данных)
+Уровень пользовательского интерфейса.
+Реализует Model-View-Controller паттерн, используя данные из доменного уровня.
 
-#### Доменный уровень
+### SemProjectUnitTesting
 
-Интерфейсы доступа к API баз данных
-
-* [IAdministratorDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IAdministratorDatabaseAPIStrategy.cs)
-* [IReportDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IReportDatabaseAPIStrategy.cs)
-* [IUserDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IUserDatabaseAPIStrategy.cs)
-* [IVideoDatabaseAPIStrategy](../Project/CSharpSemProject/CSharpSemProject/api/IVideoDatabaseAPIStrategy.cs)
+Подпроект для юнит тестов
