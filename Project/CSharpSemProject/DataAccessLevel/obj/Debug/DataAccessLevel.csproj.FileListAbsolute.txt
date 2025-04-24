@@ -1,9 +1,0 @@
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\bin\Debug\DataAccessLevel.dll
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\bin\Debug\DataAccessLevel.pdb
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\bin\Debug\DataDomenLevel.dll
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\bin\Debug\DataDomenLevel.pdb
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\obj\Debug\DataAccessLevel.csproj.AssemblyReference.cache
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\obj\Debug\DataAccessLevel.csproj.CoreCompileInputs.cache
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\obj\Debug\DataAcce.38FB5A08.Up2Date
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\obj\Debug\DataAccessLevel.dll
-C:\work\CSharpLabs\Project\CSharpSemProject\DataAccessLevel\obj\Debug\DataAccessLevel.pdb

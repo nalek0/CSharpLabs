@@ -1,9 +1,0 @@
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\bin\Debug\DataUILevel.dll
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\bin\Debug\DataUILevel.pdb
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\bin\Debug\DataDomenLevel.dll
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\bin\Debug\DataDomenLevel.pdb
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\obj\Debug\DataUILevel.csproj.AssemblyReference.cache
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\obj\Debug\DataUILevel.csproj.CoreCompileInputs.cache
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\obj\Debug\DataUILe.0401889A.Up2Date
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\obj\Debug\DataUILevel.dll
-C:\work\CSharpLabs\Project\CSharpSemProject\DataUILevel\obj\Debug\DataUILevel.pdb
