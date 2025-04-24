@@ -2,6 +2,8 @@
 using CSharpSemProject.api;
 using CSharpSemProject.api.impl;
 using SemProjectUnitTesting.mocks;
+using NSubstitute;
+using CSharpSemProject.data;
 
 namespace SemProjectUnitTesting
 {
@@ -11,8 +13,27 @@ namespace SemProjectUnitTesting
         [TestMethod]
         public void TestModelLogic()
         {
+            var adminApiStub = Substitute.For<IAdministratorDatabaseAPIStrategy>();
+            var admin1 = new AdministratorDataBuilder()
+                .SetFirstName("FirstName#1")
+                .SetLastName("LastName#1")
+                .SetNickname("Nickname#1")
+                .SetPassword("****")
+                .Build();
+            var admin2 = new AdministratorDataBuilder()
+                .SetFirstName("FirstName#2")
+                .SetLastName("LastName#2")
+                .SetNickname("Nickname#2")
+                .SetPassword("****")
+                .Build();
+
+            adminApiStub.GetAdministrator(0).Returns(admin1);
+            adminApiStub.GetAdministrator(1).Returns(admin2);
+            adminApiStub.GetAdministrator("Nickname#1", "****").Returns(admin1);
+            adminApiStub.GetAdministrator("Nickname#2", "****").Returns(admin2);
+
             DatabaseAPIFacade databaseAPI = new DatabaseAPIFacade(
-                new AdministratorDatabaseAPIStub(),
+                adminApiStub,
                 new NullReportDatabaseAPI(),
                 new NullUserDatabaseAPI(),
                 new NullVideoDatabaseAPI());
