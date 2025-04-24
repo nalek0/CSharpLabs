@@ -1,0 +1,6 @@
+C:\work\CSharpLabs\Project\CSharpSemProject\DataDomenLevel\obj\Debug\DataDomenLevel.csproj.AssemblyReference.cache
+C:\work\CSharpLabs\Project\CSharpSemProject\DataDomenLevel\obj\Debug\DataDomenLevel.csproj.CoreCompileInputs.cache
+C:\work\CSharpLabs\Project\CSharpSemProject\DataDomenLevel\bin\Debug\DataDomenLevel.dll
+C:\work\CSharpLabs\Project\CSharpSemProject\DataDomenLevel\bin\Debug\DataDomenLevel.pdb
+C:\work\CSharpLabs\Project\CSharpSemProject\DataDomenLevel\obj\Debug\DataDomenLevel.dll
+C:\work\CSharpLabs\Project\CSharpSemProject\DataDomenLevel\obj\Debug\DataDomenLevel.pdb

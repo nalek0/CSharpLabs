@@ -1,7 +1,8 @@
-﻿using CSharpSemProject.api;
-using CSharpSemProject.api.impl;
-using CSharpSemProject.mvc;
-using CSharpSemProject.mvc.impl;
+﻿using DataDomenLevel.data;
+using DataDomenLevel.api;
+using DataAccessLevel.api;
+using DataUILevel.mvc;
+using DataUILevel.mvc.impl;
 
 namespace CSharpSemProject
 {

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{64A4FEAC-EDCD-4202-AD0B-85B72315D118}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>CSharpSemProject</RootNamespace>
-    <AssemblyName>CSharpSemProject</AssemblyName>
+    <ProjectGuid>{74BA29BF-2E14-4C4E-BBC2-38702D5659B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DataUILevel</RootNamespace>
+    <AssemblyName>DataUILevel</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,38 +32,23 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <Compile Include="command\CommandManagerSingleton.cs" />
+    <Compile Include="command\IAdministratorCommand.cs" />
+    <Compile Include="mvc\IController.cs" />
+    <Compile Include="mvc\impl\TerminalController.cs" />
+    <Compile Include="mvc\impl\TerminalView.cs" />
+    <Compile Include="mvc\IView.cs" />
+    <Compile Include="mvc\Model.cs" />
+    <Compile Include="mvc\ModelState.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Castle.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.5.1.1\lib\net462\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute, Version=5.3.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\packages\NSubstitute.5.3.0\lib\net462\NSubstitute.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLevel\DataAccessLevel.csproj">
-      <Project>{63ae2a8b-0f46-41bf-b46e-15bb7a413a7b}</Project>
-      <Name>DataAccessLevel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataDomenLevel\DataDomenLevel.csproj">
       <Project>{a379e1a9-2cfb-444b-9a73-98bda3dce0ca}</Project>
       <Name>DataDomenLevel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataUILevel\DataUILevel.csproj">
-      <Project>{74ba29bf-2e14-4c4e-bbc2-38702d5659b2}</Project>
-      <Name>DataUILevel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
