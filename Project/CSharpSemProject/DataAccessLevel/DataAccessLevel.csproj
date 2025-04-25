@@ -37,6 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="api\DatabaseAPIFacade.cs" />
     <Compile Include="api\LocalAdministratorDatabaseAPI.cs" />
     <Compile Include="api\LocalReportDatabaseAPI.cs" />
     <Compile Include="api\LocalUserDatabaseAPI.cs" />

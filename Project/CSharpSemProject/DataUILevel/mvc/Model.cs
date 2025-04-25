@@ -5,11 +5,11 @@ namespace DataUILevel.mvc
 {
     public class Model
     {
-        private DatabaseAPIFacade _databaseApi;
+        private IDatabaseAPIFacade _databaseApi;
         
         public ModelState State { get; }
 
-        public Model(DatabaseAPIFacade databaseApi)
+        public Model(IDatabaseAPIFacade databaseApi)
         {
             _databaseApi = databaseApi;
             State = new ModelState();

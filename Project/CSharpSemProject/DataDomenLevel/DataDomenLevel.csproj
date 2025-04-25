@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="api\DatabaseApiException.cs" />
-    <Compile Include="api\DatabaseAPIFacade.cs" />
+    <Compile Include="api\IDatabaseAPIFacade.cs" />
     <Compile Include="api\IAdministratorDatabaseAPIStrategy.cs" />
     <Compile Include="api\IReportDatabaseAPIStrategy.cs" />
     <Compile Include="api\IUserDatabaseAPIStrategy.cs" />

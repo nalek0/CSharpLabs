@@ -1,9 +1,10 @@
 ﻿using DataDomenLevel.data;
+using DataDomenLevel.api;
 using System.Collections.Generic;
 
-namespace DataDomenLevel.api
+namespace DataAccessLevel.api
 {
-    public class DatabaseAPIFacade
+    public class DatabaseAPIFacade : IDatabaseAPIFacade
     {
         IAdministratorDatabaseAPIStrategy _administratorDatabaseAPIStrategy;
         IReportDatabaseAPIStrategy _reportDatabaseAPIStrategy;
