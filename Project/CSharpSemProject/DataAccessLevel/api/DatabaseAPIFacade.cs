@@ -1,6 +1,7 @@
 ﻿using DataDomenLevel.data;
 using DataDomenLevel.api;
 using System.Collections.Generic;
+using System;
 
 namespace DataAccessLevel.api
 {
@@ -17,10 +18,19 @@ namespace DataAccessLevel.api
             IUserDatabaseAPIStrategy userDatabaseAPIStrategy,
             IVideoDatabaseAPIStrategy videoDatabaseAPIStrategy)
         {
-            _administratorDatabaseAPIStrategy = administratorDatabaseAPIStrategy;
-            _reportDatabaseAPIStrategy = reportDatabaseAPIStrategy;
-            _userDatabaseAPIStrategy = userDatabaseAPIStrategy;
-            _videoDatabaseAPIStrategy = videoDatabaseAPIStrategy;
+            if (administratorDatabaseAPIStrategy == null)
+                throw new ArgumentNullException("administratorDatabaseAPIStrategy");
+            if (reportDatabaseAPIStrategy == null)
+                throw new ArgumentNullException("reportDatabaseAPIStrategy");
+            if (userDatabaseAPIStrategy == null)
+                throw new ArgumentNullException("userDatabaseAPIStrategy");
+            if (videoDatabaseAPIStrategy == null)
+                throw new ArgumentNullException("videoDatabaseAPIStrategy");
+
+            this._administratorDatabaseAPIStrategy = administratorDatabaseAPIStrategy;
+            this._reportDatabaseAPIStrategy = reportDatabaseAPIStrategy;
+            this._userDatabaseAPIStrategy = userDatabaseAPIStrategy;
+            this._videoDatabaseAPIStrategy = videoDatabaseAPIStrategy;
         }
 
         #region Administrator API
