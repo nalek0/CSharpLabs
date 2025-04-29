@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Data.SqlClient;
+using Task2.api;
+using Task2.api.impl;
 
 namespace Task2
 {
@@ -11,22 +12,10 @@ namespace Task2
                 "Initial Catalog=Lab5Task2Database;" +
                 "Integrated Security=True;";
 
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.ConnectionString = connectionString;
-                connection.Open();
-
-                var query = "SELECT * FROM Players";
-                SqlCommand command = new SqlCommand(query, connection);
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"PlayerID: {reader["PlayerID"]}");
-                    }
-                }
-            }
+            IPlayersAPI playersAPI = new PlayersAPI { ConnectionString = connectionString };
+            var data = playersAPI.Create("Hello", "world");
+            Console.WriteLine("Added player:");
+            Console.WriteLine(data);
         }
     }
 }

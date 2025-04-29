@@ -36,6 +36,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\impl\PlayersAPI.cs" />
+    <Compile Include="api\IPlayersAPI.cs" />
+    <Compile Include="data\AddressData.cs" />
+    <Compile Include="data\TeamData.cs" />
+    <Compile Include="data\PlayerData.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
