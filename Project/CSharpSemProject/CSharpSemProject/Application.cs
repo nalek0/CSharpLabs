@@ -31,8 +31,9 @@ namespace CSharpSemProject
             var container = builder.Build();
             var scope = container.BeginLifetimeScope();
 
-            IDatabaseAPIFacade databaseAPI = scope.Resolve<IDatabaseAPIFacade>();
-            Model model = new Model(databaseAPI);
+            Model model = new Model();
+            model.DatabaseAPI = scope.Resolve<IDatabaseAPIFacade>();
+            
             IView view = new TerminalView(model);
             IController controller = new TerminalController(view, model);
 
