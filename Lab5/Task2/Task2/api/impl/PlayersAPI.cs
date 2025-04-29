@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 using Task2.data;
 
 namespace Task2.api.impl
@@ -37,27 +39,84 @@ namespace Task2.api.impl
 
                 return new PlayerData
                 {
-                    PlayerId = (int)idParam.Value,
+                    PlayerId = (short) (int) idParam.Value,
                     FirstName = firstName,
                     SecondName = secondName,
-                    Address = null,
-                    Team = null,
+                    AddressId = null,
+                    TeamId = null,
                     NumberOfGoals = 0
                 };
             }
         }
 
-        public void Delete(int playerId)
-        {
-            throw new NotImplementedException();
-        }
-
         public PlayerData Read(int playerId)
         {
-            throw new NotImplementedException();
+            var query = "SELECT * FROM Players WHERE PlayerId = @PlayerId LIMIT 1";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@PlayerId", SqlDbType.SmallInt).Value = playerId;
+                
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    var playerData = new PlayerData
+                    {
+                        PlayerId = (short)reader["PlayerId"],
+                        FirstName = (string)reader["FirstName"],
+                        SecondName = (string)reader["SecondName"],
+                        AddressId = reader["AddressId"] == DBNull.Value ? null : (short?)reader["AddressId"],
+                        TeamId = reader["TeamId"] == DBNull.Value ? null : (short?)reader["TeamId"],
+                        NumberOfGoals = (int)reader["NumberOfGoals"]
+                    };
+
+                    return playerData;
+                }
+            }
+
+            return null;
+        }
+
+        public List<PlayerData> ReadAll()
+        {
+            var result = new List<PlayerData>();
+            var query = "SELECT * FROM Players";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var playerData = new PlayerData
+                        {
+                            PlayerId = (short)reader["PlayerId"],
+                            FirstName = (string)reader["FirstName"],
+                            SecondName = (string)reader["SecondName"],
+                            AddressId = reader["AddressId"] == DBNull.Value ? null : (short?)reader["AddressId"],
+                            TeamId = reader["TeamId"] == DBNull.Value ? null : (short?)reader["TeamId"],
+                            NumberOfGoals = (int)reader["NumberOfGoals"]
+                        };
+
+                        result.Add(playerData);
+                    }
+                }
+            }
+
+            return result;
         }
 
         public void Update(int playerId, PlayerData playerData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int playerId)
         {
             throw new NotImplementedException();
         }

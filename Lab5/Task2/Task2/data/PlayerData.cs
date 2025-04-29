@@ -8,11 +8,11 @@ namespace Task2.data
 {
     class PlayerData
     {
-        public int PlayerId { get; set; }
+        public short PlayerId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public AddressData Address { get; set; }
-        public TeamData Team { get; set; }
+        public short? AddressId { get; set; }
+        public short? TeamId { get; set; }
         public int NumberOfGoals { get; set; }
         public override string ToString()
         {
@@ -20,8 +20,8 @@ namespace Task2.data
                 $" PlayerId={PlayerId}," +
                 $" FirstName={FirstName}," +
                 $" SecondName={SecondName}," +
-                $" Address={Address}," +
-                $" Team={Team}," +
+                $" Address={AddressId}," +
+                $" Team={TeamId}," +
                 $" NumberOfGoals={NumberOfGoals}" +
                 $" ]";
         }

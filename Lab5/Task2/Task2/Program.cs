@@ -14,8 +14,14 @@ namespace Task2
 
             IPlayersAPI playersAPI = new PlayersAPI { ConnectionString = connectionString };
             var data = playersAPI.Create("Hello", "world");
-            Console.WriteLine("Added player:");
+            Console.WriteLine("==== Added player ====");
             Console.WriteLine(data);
+            
+            Console.WriteLine("==== Current Players ====");
+            foreach (var data2 in playersAPI.ReadAll())
+            {
+                Console.WriteLine(data2);
+            }
         }
     }
 }
