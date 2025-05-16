@@ -14,6 +14,7 @@ namespace Task2
 
             IPlayersAPI playersAPI = new PlayersAPI { ConnectionString = connectionString };
             IAdressesAPI addressesAPI = new AddressesAPI { ConnectionString = connectionString };
+            ITeamsAPI teamsAPI = new TeamsAPI { ConnectionString = connectionString };
 
             Console.WriteLine("==== Current Players ====");
             foreach (var data2 in playersAPI.ReadAll())
@@ -41,7 +42,9 @@ namespace Task2
             Console.WriteLine("==== Update Player ====");
             newPlayer.NumberOfGoals = 101;
             var newAddress = addressesAPI.Create("RU", "SPb", "Street", "1", "100");
+            var newTeam = teamsAPI.Create("SuperTeam", 2025);
             newPlayer.AddressId = newAddress.AddressId;
+            newPlayer.TeamId = newTeam.TeamId;
             playersAPI.Update(newPlayer.PlayerId, newPlayer);
 
             Console.WriteLine("==== Current Players ====");
@@ -51,7 +54,12 @@ namespace Task2
                 
                 if (data2.AddressId != null)
                 {
-                    Console.WriteLine("Address = " + addressesAPI.Read(data2.AddressId ?? 0).ToString());
+                    Console.WriteLine("> Address = " + addressesAPI.Read(data2.AddressId ?? 0).ToString());
+                }
+                
+                if (data2.TeamId != null)
+                {
+                    Console.WriteLine("> Team = " + teamsAPI.Read(data2.TeamId ?? 0).ToString());
                 }
             }
         }
