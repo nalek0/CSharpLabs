@@ -13,6 +13,7 @@ namespace Task2
                 "Integrated Security=True;";
 
             IPlayersAPI playersAPI = new PlayersAPI { ConnectionString = connectionString };
+            IAdressesAPI addressesAPI = new AddressesAPI { ConnectionString = connectionString };
 
             Console.WriteLine("==== Current Players ====");
             foreach (var data2 in playersAPI.ReadAll())
@@ -39,12 +40,19 @@ namespace Task2
             
             Console.WriteLine("==== Update Player ====");
             newPlayer.NumberOfGoals = 101;
+            var newAddress = addressesAPI.Create("RU", "SPb", "Street", "1", "100");
+            newPlayer.AddressId = newAddress.AddressId;
             playersAPI.Update(newPlayer.PlayerId, newPlayer);
 
             Console.WriteLine("==== Current Players ====");
             foreach (var data2 in playersAPI.ReadAll())
             {
                 Console.WriteLine(data2);
+                
+                if (data2.AddressId != null)
+                {
+                    Console.WriteLine("Address = " + addressesAPI.Read(data2.AddressId ?? 0).ToString());
+                }
             }
         }
     }

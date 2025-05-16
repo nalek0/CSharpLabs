@@ -49,7 +49,7 @@ namespace Task2.api.impl
             }
         }
 
-        public PlayerData Read(int playerId)
+        public PlayerData Read(short playerId)
         {
             var query = "SELECT * FROM Players WHERE PlayerId = @PlayerId LIMIT 1";
 
@@ -62,17 +62,20 @@ namespace Task2.api.impl
                 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    var playerData = new PlayerData
+                    while (reader.Read())
                     {
-                        PlayerId = (short)reader["PlayerId"],
-                        FirstName = (string)reader["FirstName"],
-                        SecondName = (string)reader["SecondName"],
-                        AddressId = reader["AddressId"] == DBNull.Value ? null : (short?)reader["AddressId"],
-                        TeamId = reader["TeamId"] == DBNull.Value ? null : (short?)reader["TeamId"],
-                        NumberOfGoals = (int)reader["NumberOfGoals"]
-                    };
+                        var playerData = new PlayerData
+                        {
+                            PlayerId = (short)reader["PlayerId"],
+                            FirstName = (string)reader["FirstName"],
+                            SecondName = (string)reader["SecondName"],
+                            AddressId = reader["AddressId"] == DBNull.Value ? null : (short?)reader["AddressId"],
+                            TeamId = reader["TeamId"] == DBNull.Value ? null : (short?)reader["TeamId"],
+                            NumberOfGoals = (int)reader["NumberOfGoals"]
+                        };
 
-                    return playerData;
+                        return playerData;
+                    }
                 }
             }
 
@@ -111,7 +114,7 @@ namespace Task2.api.impl
             return result;
         }
 
-        public void Update(int playerId, PlayerData playerData)
+        public void Update(short playerId, PlayerData playerData)
         {
             var result = new List<PlayerData>();
             var query = "UPDATE Players " +
@@ -138,7 +141,7 @@ namespace Task2.api.impl
             }
         }
 
-        public void Delete(int playerId)
+        public void Delete(short playerId)
         {
             var result = new List<PlayerData>();
             var query = "DELETE FROM Players WHERE PlayerId = @PlayerId";

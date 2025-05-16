@@ -7,9 +7,9 @@ namespace Task2.api
     interface IPlayersAPI
     {
         PlayerData Create(string firstName, string secondName);
-        PlayerData Read(int playerId);
+        PlayerData Read(short playerId);
         List<PlayerData> ReadAll();
-        void Update(int playerId, PlayerData playerData);
-        void Delete(int playerId);
+        void Update(short playerId, PlayerData playerData);
+        void Delete(short playerId);
     }
 }
