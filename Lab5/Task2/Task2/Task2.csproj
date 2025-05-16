@@ -48,6 +48,7 @@
     <Compile Include="api\IPlayersAPI.cs" />
     <Compile Include="data\AddressData.cs" />
     <Compile Include="data\StadiumData.cs" />
+    <Compile Include="data\StatsData.cs" />
     <Compile Include="data\TeamData.cs" />
     <Compile Include="data\PlayerData.cs" />
     <Compile Include="Program.cs" />

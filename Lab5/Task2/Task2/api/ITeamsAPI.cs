@@ -6,14 +6,10 @@ namespace Task2.api
 {
     interface ITeamsAPI
     {
-        #region CRUD operations
         TeamData Create(string teamName, int estYear);
-
         TeamData Read(short teamId);
-
+        StatsData ReadStats(short teamId);
         void Update(short teamId, TeamData addressData);
-
         void Delete(short teamId);
-        #endregion
     }
 }

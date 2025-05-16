@@ -41,6 +41,14 @@ namespace Task2
             var players2 = playersAPI.Create("Player 2", "", address2.AddressId, team2.TeamId, 0);
             var players3 = playersAPI.Create("Player 3", "", address3.AddressId, team2.TeamId, 0);
 
+            Console.WriteLine("==== Team1 Stats ====");
+            var statsData1 = teamsAPI.ReadStats(team1.TeamId);
+            Console.WriteLine(statsData1);
+
+            Console.WriteLine("==== Team2 Stats ====");
+            var statsData2 = teamsAPI.ReadStats(team2.TeamId);
+            Console.WriteLine(statsData2);
+
             Console.WriteLine("==== Team1 Players ====");
 
             foreach (var data2 in playersAPI.ReadTeamPlayers(team1.TeamId))
