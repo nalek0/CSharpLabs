@@ -36,7 +36,7 @@ namespace Task2
             }
 
             Console.WriteLine("==== Add Player ====");
-            var newPlayer = playersAPI.Create("firstName", "secondName");
+            var newPlayer = playersAPI.Create("firstName", "secondName", null, null, 0);
             Console.WriteLine(newPlayer);
             
             Console.WriteLine("==== Update Player ====");
@@ -47,19 +47,43 @@ namespace Task2
             newPlayer.TeamId = newTeam.TeamId;
             playersAPI.Update(newPlayer.PlayerId, newPlayer);
 
+            Console.WriteLine("==== Add Player2 ====");
+            var newPlayer2 = playersAPI.Create("firstName2", "secondName2", null, newTeam.TeamId, 0);
+            Console.WriteLine(newPlayer2);
+
+            Console.WriteLine("==== Add Player2 ====");
+            var newPlayer3 = playersAPI.Create("firstName2", "secondName2", null, null, 0);
+            Console.WriteLine(newPlayer3);
+
             Console.WriteLine("==== Current Players ====");
             foreach (var data2 in playersAPI.ReadAll())
             {
                 Console.WriteLine(data2);
-                
+
                 if (data2.AddressId != null)
                 {
-                    Console.WriteLine("> Address = " + addressesAPI.Read(data2.AddressId ?? 0).ToString());
+                    Console.WriteLine("  Address = " + addressesAPI.Read(data2.AddressId ?? 0).ToString());
                 }
-                
+
                 if (data2.TeamId != null)
                 {
-                    Console.WriteLine("> Team = " + teamsAPI.Read(data2.TeamId ?? 0).ToString());
+                    Console.WriteLine("  Team = " + teamsAPI.Read(data2.TeamId ?? 0).ToString());
+                }
+            }
+
+            Console.WriteLine("==== New Team Players ====");
+            foreach (var data2 in playersAPI.ReadTeamPlayers(newTeam.TeamId))
+            {
+                Console.WriteLine(data2);
+
+                if (data2.AddressId != null)
+                {
+                    Console.WriteLine("  Address = " + addressesAPI.Read(data2.AddressId ?? 0).ToString());
+                }
+
+                if (data2.TeamId != null)
+                {
+                    Console.WriteLine("  Team = " + teamsAPI.Read(data2.TeamId ?? 0).ToString());
                 }
             }
         }

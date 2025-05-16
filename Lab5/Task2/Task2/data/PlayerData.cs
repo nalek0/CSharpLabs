@@ -14,6 +14,7 @@ namespace Task2.data
         public short? AddressId { get; set; }
         public short? TeamId { get; set; }
         public int NumberOfGoals { get; set; }
+
         public override string ToString()
         {
             return $"PlayerData[" +

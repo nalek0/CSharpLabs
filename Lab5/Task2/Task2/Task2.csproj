@@ -36,13 +36,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\impl\StadiumsAPI.cs" />
     <Compile Include="api\impl\TeamsAPI.cs" />
+    <Compile Include="api\IStadiumsAPI.cs" />
     <Compile Include="api\ITeamsAPI.cs" />
     <Compile Include="api\impl\AddressesAPI.cs" />
     <Compile Include="api\impl\PlayersAPI.cs" />
     <Compile Include="api\IAdressesAPI.cs" />
     <Compile Include="api\IPlayersAPI.cs" />
     <Compile Include="data\AddressData.cs" />
+    <Compile Include="data\StadiumData.cs" />
     <Compile Include="data\TeamData.cs" />
     <Compile Include="data\PlayerData.cs" />
     <Compile Include="Program.cs" />

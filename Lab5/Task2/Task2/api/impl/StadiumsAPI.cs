@@ -81,7 +81,7 @@ namespace Task2.api.impl
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@StadiumName", SqlDbType.NVarChar, 10).Value = stadiumData.;
+                command.Parameters.Add("@StadiumName", SqlDbType.NVarChar, 10).Value = stadiumData.StadiumName;
                 command.Parameters.Add("@StadiumId", SqlDbType.SmallInt).Value = stadiumId;
 
                 command.ExecuteNonQuery();

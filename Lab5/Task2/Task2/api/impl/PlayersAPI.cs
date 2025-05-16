@@ -11,11 +11,11 @@ namespace Task2.api.impl
     {
         public string ConnectionString { get; set; }
 
-        public PlayerData Create(string firstName, string secondName)
+        public PlayerData Create(string firstName, string secondName, short? addressId, short? teamId, int numberOfGoals)
         {
             var query = "INSERT INTO Players " +
-                "(FirstName, SecondName, NumberOfGoals) " +
-                "VALUES (@FirstName, @SecondName, @NumberOfGoals);" +
+                "(FirstName, SecondName, AddressId, TeamId, NumberOfGoals) " +
+                "VALUES (@FirstName, @SecondName, @AddressId, @TeamId, @NumberOfGoals);" +
                 "SET @id=SCOPE_IDENTITY()";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -23,12 +23,14 @@ namespace Task2.api.impl
             {
                 command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = firstName;
                 command.Parameters.Add("@SecondName", SqlDbType.NVarChar, 50).Value = secondName;
-                command.Parameters.Add("@NumberOfGoals", SqlDbType.SmallInt).Value = 0;
+                command.Parameters.Add("@AddressId", SqlDbType.SmallInt).Value = (object) addressId ?? DBNull.Value;
+                command.Parameters.Add("@TeamId", SqlDbType.SmallInt).Value = (object) teamId ?? DBNull.Value;
+                command.Parameters.Add("@NumberOfGoals", SqlDbType.Int).Value = numberOfGoals;
 
                 SqlParameter idParam = new SqlParameter
                 {
                     ParameterName = "@id",
-                    SqlDbType = SqlDbType.Int,
+                    SqlDbType = SqlDbType.SmallInt,
                     Direction = ParameterDirection.Output // параметр выходной
                 };
                 command.Parameters.Add(idParam);
@@ -39,12 +41,12 @@ namespace Task2.api.impl
 
                 return new PlayerData
                 {
-                    PlayerId = (short) (int) idParam.Value,
+                    PlayerId = (short) idParam.Value,
                     FirstName = firstName,
                     SecondName = secondName,
-                    AddressId = null,
-                    TeamId = null,
-                    NumberOfGoals = 0
+                    AddressId = addressId,
+                    TeamId = teamId,
+                    NumberOfGoals = numberOfGoals
                 };
             }
         }
@@ -155,6 +157,40 @@ namespace Task2.api.impl
          
                 command.ExecuteNonQuery();
             }
+        }
+
+        public List<PlayerData> ReadTeamPlayers(short teamId)
+        {
+            List<PlayerData> result = new List<PlayerData>();
+            var query = "SELECT * FROM Players WHERE TeamId = @TeamId";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@TeamId", SqlDbType.SmallInt).Value = teamId;
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var playerData = new PlayerData
+                        {
+                            PlayerId = (short)reader["PlayerId"],
+                            FirstName = (string)reader["FirstName"],
+                            SecondName = (string)reader["SecondName"],
+                            AddressId = reader["AddressId"] == DBNull.Value ? null : (short?)reader["AddressId"],
+                            TeamId = reader["TeamId"] == DBNull.Value ? null : (short?)reader["TeamId"],
+                            NumberOfGoals = (int)reader["NumberOfGoals"]
+                        };
+
+                        result.Add(playerData);
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }
