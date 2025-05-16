@@ -38,7 +38,9 @@
   <ItemGroup>
     <Compile Include="api\impl\StadiumsAPI.cs" />
     <Compile Include="api\impl\TeamsAPI.cs" />
+    <Compile Include="api\impl\TeamStadiumRelation.cs" />
     <Compile Include="api\IStadiumsAPI.cs" />
+    <Compile Include="api\ITeamStadiumRelation.cs" />
     <Compile Include="api\ITeamsAPI.cs" />
     <Compile Include="api\impl\AddressesAPI.cs" />
     <Compile Include="api\impl\PlayersAPI.cs" />
