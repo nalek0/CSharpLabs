@@ -37,9 +37,9 @@ namespace Task2
             var address1 = addressesAPI.Create("RU", "SPb", "", "1", "");
             var address2 = addressesAPI.Create("RU", "SPb", "", "2", "");
             var address3 = addressesAPI.Create("RU", "SPb", "", "3", "");
-            var players1 = playersAPI.Create("Player 1", "", address1.AddressId, team1.TeamId, 0);
-            var players2 = playersAPI.Create("Player 2", "", address2.AddressId, team2.TeamId, 0);
-            var players3 = playersAPI.Create("Player 3", "", address3.AddressId, team2.TeamId, 0);
+            var players1 = playersAPI.Create("Player 1", "", address1.AddressId, team1.TeamId, 1);
+            var players2 = playersAPI.Create("Player 2", "", address2.AddressId, team2.TeamId, 2);
+            var players3 = playersAPI.Create("Player 3", "", address3.AddressId, team2.TeamId, 3);
 
             Console.WriteLine("==== Team1 Stats ====");
             var statsData1 = teamsAPI.ReadStats(team1.TeamId);

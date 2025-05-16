@@ -25,3 +25,16 @@
 * IReportDatabaseAPIStrategy
 * IUserDatabaseAPIStrategy
 * IVideoDatabaseAPIStrategy
+
+## Ado.Net лабораторная
+
+Созданы таблицы `Adresses`, `Players`, `Stadiums`, `Stats`, `Team_Stadium`, `Teams`
+
+![Tables](./src/tables.png)
+
+Добавлены CRUD APIs: `PlayerAPI`, `AddressesAPI`, `StadiumsAPI`, `TeamsAPI`
+
+Добалены отношения `Player-Address`(1-1), `Player-Team`(1-N), `Team-Stadium`(N-N) 
+
+Добавлены транзакции в методы `TeamsAPI.Create(...)` и `PlayersAPI.Create(...)`
+(То есть автоматическое добавление страницы со статистикой при создании команды и обновление среднего количество голов и кголичество игроков и добавлениии игрока)
