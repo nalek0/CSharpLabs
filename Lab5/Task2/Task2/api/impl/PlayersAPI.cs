@@ -113,12 +113,45 @@ namespace Task2.api.impl
 
         public void Update(int playerId, PlayerData playerData)
         {
-            throw new NotImplementedException();
+            var result = new List<PlayerData>();
+            var query = "UPDATE Players " +
+                "SET FirstName = @FirstName, " +
+                "SecondName = @SecondName, " +
+                "AddressId = @AddressId, " +
+                "TeamId = @TeamId, " +
+                "NumberOfGoals = @NumberOfGoals " +
+                "WHERE PlayerId = @PlayerId";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = playerData.FirstName;
+                command.Parameters.Add("@SecondName", SqlDbType.NVarChar, 50).Value = playerData.SecondName;
+                command.Parameters.Add("@AddressId", SqlDbType.SmallInt).Value = (object)playerData.AddressId ?? DBNull.Value;
+                command.Parameters.Add("@TeamId", SqlDbType.SmallInt).Value = (object)playerData.TeamId ?? DBNull.Value;
+                command.Parameters.Add("@NumberOfGoals", SqlDbType.SmallInt).Value = playerData.NumberOfGoals;
+                command.Parameters.Add("@PlayerId", SqlDbType.SmallInt).Value = playerId;
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int playerId)
         {
-            throw new NotImplementedException();
+            var result = new List<PlayerData>();
+            var query = "DELETE FROM Players WHERE PlayerId = @PlayerId";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@PlayerId", SqlDbType.SmallInt).Value = playerId;
+         
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -13,10 +13,34 @@ namespace Task2
                 "Integrated Security=True;";
 
             IPlayersAPI playersAPI = new PlayersAPI { ConnectionString = connectionString };
-            var data = playersAPI.Create("Hello", "world");
-            Console.WriteLine("==== Added player ====");
-            Console.WriteLine(data);
+
+            Console.WriteLine("==== Current Players ====");
+            foreach (var data2 in playersAPI.ReadAll())
+            {
+                Console.WriteLine(data2);
+            }
             
+            Console.WriteLine("==== Clean Players ====");
+            foreach (var data2 in playersAPI.ReadAll())
+            {
+                playersAPI.Delete(data2.PlayerId);
+                Console.WriteLine(data2);
+            }
+
+            Console.WriteLine("==== Current Players ====");
+            foreach (var data2 in playersAPI.ReadAll())
+            {
+                Console.WriteLine(data2);
+            }
+
+            Console.WriteLine("==== Add Player ====");
+            var newPlayer = playersAPI.Create("firstName", "secondName");
+            Console.WriteLine(newPlayer);
+            
+            Console.WriteLine("==== Update Player ====");
+            newPlayer.NumberOfGoals = 101;
+            playersAPI.Update(newPlayer.PlayerId, newPlayer);
+
             Console.WriteLine("==== Current Players ====");
             foreach (var data2 in playersAPI.ReadAll())
             {
