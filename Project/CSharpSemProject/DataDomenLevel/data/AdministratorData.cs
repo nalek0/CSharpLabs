@@ -1,22 +1,25 @@
-﻿namespace DataDomenLevel.data
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DataDomenLevel.data
 {
+    [Table("Administrators")]
     public class AdministratorData
     {
-        public long UserId { get; set; }
+        [Key]
+        [Index]
+        public int UserId { get; set; }
+        [MaxLength(40)]
         public string FirstName { get; set; }
+        [MaxLength(40)]
         public string LastName { get; set; }
+        [MaxLength(16)]
         public string Nickname { get; set; }
+        [MaxLength(16)]
         public string Password { get; set; }
 
-        public AdministratorData() { }
-
-        public AdministratorData(string firstName, string lastName, string nickname, string password)
-        {
-            this.UserId = -1;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Nickname = nickname;
-            this.Password = password;
-        }
+        // Relationships:
+        public ICollection<ReportData> Reports { get; set; }
     }
 }

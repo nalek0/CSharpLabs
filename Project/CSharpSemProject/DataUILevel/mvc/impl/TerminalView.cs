@@ -50,7 +50,7 @@ namespace DataUILevel.mvc.impl
             else
             {
                 foreach (var report in state.ReportDataListState)
-                    Console.WriteLine($"Report #{report.ReportId}: user={report.UserId} video={report.VideoId} description={report.Description} ({report.Status})");
+                    Console.WriteLine($"Report #{report.ReportId}: video={report.VideoId} description={report.Description} ({report.Status})");
             }
         }
     }

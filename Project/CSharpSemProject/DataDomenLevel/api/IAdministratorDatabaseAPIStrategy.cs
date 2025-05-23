@@ -1,13 +1,15 @@
 ﻿using DataDomenLevel.data;
+using System.Collections.Generic;
 
 namespace DataDomenLevel.api
 {
     public interface IAdministratorDatabaseAPIStrategy
     {
-        AdministratorData GetAdministrator(long id);
+        List<AdministratorData> GetAdministrators();
+        AdministratorData GetAdministrator(int id);
         AdministratorData GetAdministrator(string nickname, string password);
         AdministratorData CreateAdministrator(string firstName, string lastName, string nickname, string password);
-        AdministratorData RemoveAdministrator(long id);
-        AdministratorData EditAdministrator(long id, string firstName, string lastName, string nickname);
+        AdministratorData RemoveAdministrator(int id);
+        AdministratorData EditAdministrator(int id, string firstName, string lastName, string nickname);
     }
 }

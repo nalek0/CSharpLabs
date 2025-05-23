@@ -34,7 +34,12 @@ namespace DataAccessLevel.api
         }
 
         #region Administrator API
-        public AdministratorData GetAdministrator(long id)
+        public List<AdministratorData> GetAdministrators()
+        {
+            return _administratorDatabaseAPIStrategy.GetAdministrators();
+        }
+
+        public AdministratorData GetAdministrator(int id)
         {
             return _administratorDatabaseAPIStrategy.GetAdministrator(id);
         }
@@ -49,12 +54,12 @@ namespace DataAccessLevel.api
             return _administratorDatabaseAPIStrategy.CreateAdministrator(firstName, lastName, nickname, password);
         }
 
-        public AdministratorData RemoveAdministrator(long id)
+        public AdministratorData RemoveAdministrator(int id)
         {
             return _administratorDatabaseAPIStrategy.RemoveAdministrator(id);
         }
 
-        public AdministratorData EditAdministrator(long id, string firstName, string lastName, string nickname)
+        public AdministratorData EditAdministrator(int id, string firstName, string lastName, string nickname)
         {
             return _administratorDatabaseAPIStrategy.EditAdministrator(id, firstName, lastName, nickname);
         }

@@ -17,7 +17,12 @@ namespace DataAccessLevel.api
             _administrators = new List<AdministratorData>();
         }
 
-        public AdministratorData GetAdministrator(long id)
+        public List<AdministratorData> GetAdministrators()
+        {
+            return _administrators;
+        }
+
+        public AdministratorData GetAdministrator(int id)
         {
             AdministratorData administratorData = _administrators
                 .Where((admin) => admin.UserId == id)
@@ -37,19 +42,21 @@ namespace DataAccessLevel.api
 
         public AdministratorData CreateAdministrator(string firstName, string lastName, string nickname, string password)
         {
-            AdministratorData administratorData = new AdministratorDataBuilder()
-                .SetFirstName(firstName)
-                .SetLastName(lastName)
-                .SetNickname(nickname)
-                .SetPassword(password)
-                .Build();
+            AdministratorData administratorData = new AdministratorData()
+            {
+                UserId = 1,
+                FirstName = firstName,
+                LastName = lastName,
+                Nickname = nickname,
+                Password = password,
+            };
             administratorData.UserId = _administrators.Count;
             _administrators.Add(administratorData);
 
             return administratorData;
         }
         
-        public AdministratorData RemoveAdministrator(long id)
+        public AdministratorData RemoveAdministrator(int id)
         {
             AdministratorData administratorData = GetAdministrator(id);
 
@@ -59,7 +66,7 @@ namespace DataAccessLevel.api
             return administratorData;
         }
 
-        public AdministratorData EditAdministrator(long id, string firstName, string lastName, string nickname)
+        public AdministratorData EditAdministrator(int id, string firstName, string lastName, string nickname)
         {
             AdministratorData administratorData = GetAdministrator(id);
 

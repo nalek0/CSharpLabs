@@ -13,7 +13,7 @@ namespace CSharpSemProject
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<NullAdministratorDatabaseAPI>()
+            builder.RegisterType<EFAdministratorDatabaseAPI>()
                 .As<IAdministratorDatabaseAPIStrategy>()
                 .SingleInstance();
 

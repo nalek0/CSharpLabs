@@ -9,8 +9,8 @@ namespace DataAccessLevel.api
     {
         private List<ReportData> _reports = new List<ReportData>()
         {
-            new ReportData() { ReportId = 1, UserId = 1, VideoId = 1, Description = "...", Status = ReportStatus.OPEN },
-            new ReportData() { ReportId = 2, UserId = 2, VideoId = 2, Description = "...", Status = ReportStatus.OPEN }
+            new ReportData() { ReportId = 1, VideoId = 1, Description = "...", Status = ReportStatus.OPEN },
+            new ReportData() { ReportId = 2, VideoId = 2, Description = "...", Status = ReportStatus.OPEN }
         };
 
         public ReportData GetReport(long reportId)

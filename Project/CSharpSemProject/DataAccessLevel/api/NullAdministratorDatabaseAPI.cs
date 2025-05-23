@@ -1,12 +1,18 @@
 ﻿using DataDomenLevel.data;
 using DataDomenLevel.api;
 using System;
+using System.Collections.Generic;
 
 namespace DataAccessLevel.api
 {
     public class NullAdministratorDatabaseAPI : IAdministratorDatabaseAPIStrategy
     {
-        public AdministratorData GetAdministrator(long id)
+        public List<AdministratorData> GetAdministrators()
+        {
+            throw new NotImplementedException();
+        }
+
+        public AdministratorData GetAdministrator(int id)
         {
             throw new NotImplementedException();
         }
@@ -21,12 +27,12 @@ namespace DataAccessLevel.api
             throw new NotImplementedException();
         }
 
-        public AdministratorData RemoveAdministrator(long id)
+        public AdministratorData RemoveAdministrator(int id)
         {
             throw new NotImplementedException();
         }
 
-        public AdministratorData EditAdministrator(long id, string firstName, string lastName, string nickname)
+        public AdministratorData EditAdministrator(int id, string firstName, string lastName, string nickname)
         {
             throw new NotImplementedException();
         }
